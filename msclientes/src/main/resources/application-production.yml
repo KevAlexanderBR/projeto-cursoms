@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: msclientes
+
+server:
+  port: 0
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://cursoms-eureka-user:russeruasrk-oec-meu@${EUREKA_SERVER}:8761/eureka
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instanceId:${random.value}}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  file:
+    name: ./logs/log-file.log
